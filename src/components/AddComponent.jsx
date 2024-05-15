@@ -12,13 +12,15 @@ const AddComponent = ({ setTodos, todos }) => {
       content: content,
       condition: "working",
     };
+    setTitle("");
+    setContent("");
     setTodos([...todos, newTodo]);
 
     // localStorage.setItem("newTodo");
   };
   return (
     <div>
-      <form onSubmit={addHandler}>
+      <form onSubmit={addHandler} id="dd">
         <div id="inputs">
           <label htmlFor="titleInput">
             <p>제목</p>
