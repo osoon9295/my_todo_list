@@ -3,8 +3,14 @@ const Button = ({ children, onClick, color }) => {
     return (
       <button
         style={{
+          width: "fitContent",
           backgroundColor: color,
           color: "white",
+          margin: "10px",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "20px",
+          cursor: "pointer",
         }}
         onClick={onClick}
       >

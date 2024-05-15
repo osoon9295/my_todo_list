@@ -16,6 +16,8 @@ const App = () => {
       condition: "working",
     };
     setTodos([...todos, newTodo]);
+
+    // localStorage.setItem("newTodo");
   };
 
   const deleteHandler = (id) => {
@@ -38,30 +40,31 @@ const App = () => {
     setTodos(doneTodos);
   };
 
-  const headerStyle = {
-    backgroundColor: "gray",
-    display: "flex",
-    justifyContent: "space-between",
-    border: "1px solid black",
-  };
-
-  const formStyle = {
-    backgroundColor: "pink",
-    display: "flex",
-    justifyContent: "space-between",
+  const renderTodos = (condition) => {
+    return todos
+      .filter((todo) => todo.condition === condition)
+      .map((todo) => (
+        <Todo
+          key={todo.id}
+          todo={todo}
+          deleteHandler={deleteHandler}
+          toggleHandler={toggleHandler}
+        />
+      ));
   };
 
   return (
-    <div>
-      <header style={headerStyle}>
+    <div id="layOut">
+      <header>
         <h1>My Todo List</h1>
-        <div>React</div>
       </header>
-      <form style={formStyle}>
-        <div>
-          <label>
-            제목
+      <form>
+        <div id="inputs">
+          <label for="titleInput">
+            <p>제목</p>
             <input
+              className="input_box"
+              name="titleInput"
               type="text"
               value={title}
               onChange={(e) => {
@@ -69,10 +72,13 @@ const App = () => {
               }}
             />
           </label>
-          <label>
-            내용
-            <input
-              type="text"
+          <label for="contentInput">
+            <p>내용</p>
+            <textarea
+              cols="100"
+              wrap="hard"
+              className="input_box"
+              name="contentInput"
               value={content}
               onChange={(e) => {
                 setContent(e.target.value);
@@ -80,41 +86,17 @@ const App = () => {
             />
           </label>
         </div>
-        <Button onClick={addHandler}>추가하기</Button>
+        <Button color="gray" onClick={addHandler}>
+          일정추가하기
+        </Button>
       </form>
-      <div>
+      <div className="cardZone">
         <h2>🔥 Working...</h2>
-        {todos
-          .filter((todo) => {
-            return todo.condition === "working";
-          })
-          .map((todo) => {
-            return (
-              <Todo
-                key={todo.id}
-                todo={todo}
-                deleteHandler={deleteHandler}
-                toggleHandler={toggleHandler}
-              />
-            );
-          })}
+        {renderTodos("working")}
       </div>
-      <div>
+      <div className="cardZone">
         <h2>🎉 Done!!!</h2>
-        {todos
-          .filter((todo) => {
-            return todo.condition === "done";
-          })
-          .map((todo) => {
-            return (
-              <Todo
-                key={todo.id}
-                todo={todo}
-                deleteHandler={deleteHandler}
-                toggleHandler={toggleHandler}
-              />
-            );
-          })}
+        {renderTodos("done")}
       </div>
     </div>
   );

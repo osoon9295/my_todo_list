@@ -2,23 +2,26 @@ import Button from "./Button";
 
 const Todo = ({ todo, deleteHandler, toggleHandler }) => {
   const cardStyle = {
-    width: "300px",
+    width: "500px",
     height: "centent",
-    backgroundColor: "beige",
-    border: "2px solid green",
+    border: "2px solid gray",
     borderRadius: "10px",
+    padding: "20px",
+    margin: "10px",
   };
 
   const { title, content, id } = todo;
 
   return (
     <div style={cardStyle}>
-      <h1>{title}</h1>
-      <p>{content}</p>
-      <Button color="green" onClick={() => deleteHandler(id)}>
+      <h2>{title}</h2>
+      <p>
+        <pre>{content}</pre>
+      </p>
+      <Button color="gray" onClick={() => deleteHandler(id)}>
         삭제하기
       </Button>
-      <Button onClick={() => toggleHandler(id)}>
+      <Button color="black" onClick={() => toggleHandler(id)}>
         {todo.condition === "working" ? "완료" : "취소"}
       </Button>
     </div>
