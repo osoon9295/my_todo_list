@@ -47,3 +47,12 @@ label {
   width: 600px;
   margin: 20px;
 }
+
+button {
+  width: fit-content;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}

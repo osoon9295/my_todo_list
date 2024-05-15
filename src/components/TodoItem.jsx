@@ -1,6 +1,4 @@
-import Button from "./Button";
-
-const Todo = ({ todo, deleteHandler, toggleHandler }) => {
+const TodoItem = ({ todo, deleteHandler, toggleHandler }) => {
   const cardStyle = {
     width: "500px",
     height: "centent",
@@ -15,17 +13,13 @@ const Todo = ({ todo, deleteHandler, toggleHandler }) => {
   return (
     <div style={cardStyle}>
       <h2>{title}</h2>
-      <p>
-        <pre>{content}</pre>
-      </p>
-      <Button color="gray" onClick={() => deleteHandler(id)}>
-        삭제하기
-      </Button>
-      <Button color="black" onClick={() => toggleHandler(id)}>
+      <pre>{content}</pre>
+      <button onClick={() => deleteHandler(id)}>삭제하기</button>
+      <button onClick={() => toggleHandler(id)}>
         {todo.condition === "working" ? "완료" : "취소"}
-      </Button>
+      </button>
     </div>
   );
 };
 
-export default Todo;
+export default TodoItem;
