@@ -1,4 +1,4 @@
-const TodoItem = ({ todo, deleteHandler, toggleHandler }) => {
+const TodoItemComponent = ({ todo, deleteHandler, toggleHandler }) => {
   const cardStyle = {
     width: "500px",
     height: "centent",
@@ -22,4 +22,4 @@ const TodoItem = ({ todo, deleteHandler, toggleHandler }) => {
   );
 };
 
-export default TodoItem;
+export default TodoItemComponent;

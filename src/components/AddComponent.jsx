@@ -15,9 +15,8 @@ const AddComponent = ({ setTodos, todos }) => {
     setTitle("");
     setContent("");
     setTodos([...todos, newTodo]);
-
-    // localStorage.setItem("newTodo");
   };
+
   return (
     <div>
       <form onSubmit={addHandler} id="dd">

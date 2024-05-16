@@ -1,5 +1,5 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import TodoItem from "./TodoItemComponent";
 
 const WorkingComponent = ({ todos, deleteHandler, toggleHandler }) => {
   return (
