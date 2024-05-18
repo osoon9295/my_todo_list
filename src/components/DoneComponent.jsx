@@ -1,5 +1,5 @@
 import React from "react";
-import TodoItem from "./TodoItemComponent";
+import TodoItemComponent from "./TodoItemComponent";
 
 const DoneComponent = ({ todos, deleteHandler, toggleHandler }) => {
   return (
@@ -10,7 +10,7 @@ const DoneComponent = ({ todos, deleteHandler, toggleHandler }) => {
         })
         .map((todo) => {
           return (
-            <TodoItem
+            <TodoItemComponent
               key={todo.id}
               todo={todo}
               deleteHandler={deleteHandler}

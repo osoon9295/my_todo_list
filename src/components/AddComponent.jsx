@@ -19,7 +19,7 @@ const AddComponent = ({ setTodos, todos }) => {
 
   return (
     <div>
-      <form onSubmit={addHandler} id="dd">
+      <form onSubmit={addHandler}>
         <div id="inputs">
           <label htmlFor="titleInput">
             <p>제목</p>
